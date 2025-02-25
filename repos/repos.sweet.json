@@ -11,9 +11,8 @@
     "withSUSFS": true,
     "toolchains": [
       {
-        "repo": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86",
-        "branch": "main",
-        "name": "clang-r530567",
+        "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r530567.tar.gz",
+        "name": "clang",
         "binPath": ["./bin"]
       }
     ],
