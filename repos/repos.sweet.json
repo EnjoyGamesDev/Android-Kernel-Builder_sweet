@@ -1,0 +1,137 @@
+[
+  {
+    "kernelSource": {
+      "name": "VantomKernel",
+      "repo": "https://github.com/PixelOS-Devices/kernel_xiaomi_sm6150",
+      "branch": "fifteen",
+      "device": "sweet",
+      "defconfig": "sweet_defconfig"
+    },
+    "withKernelSU": false,
+    "withSUSFS": false,
+    "toolchains": [
+      {
+        "repo": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86",
+        "branch": "main",
+        "name": "clang-r530567",
+        "binPath": ["./bin"]
+      }
+    ],
+    "params": {
+      "ARCH": "arm64",
+      "CC": "clang-r530567/bin/clang",
+      "externalCommand": {
+        "CROSS_COMPILE": "clang-r530567/bin/aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32": "clang-r530567/bin/arm-linux-gnueabi-",
+        "LD": "clang-r530567/bin/ld.lld",
+        "AR": "clang-r530567/bin/llvm-ar",
+        "NM": "clang-r530567/bin/llvm-nm",
+        "OBJCOPY": "clang-r530567/bin/llvm-objcopy",
+        "OBJDUMP": "clang-r530567/bin/llvm-objdump",
+        "READELF": "clang-r530567/bin/llvm-readelf",
+        "OBJSIZE": "clang-r530567/bin/llvm-size",
+        "STRIP": "clang-r530567/bin/llvm-strip",
+        "LDGOLD": "clang-r530567/bin/aarch64-linux-gnu-ld.gold",
+        "LLVM_AR": "clang-r530567/bin/llvm-ar",
+        "LLVM_DIS": "clang-r530567/bin/llvm-dis",
+        "EXTRAVERSION": "-perf"
+      }
+    },
+    "AnyKernel3": {
+      "use": true,
+      "release": true,
+      "repo": "https://github.com/basamaryan/AnyKernel3/",
+      "branch": "master"
+    }
+  },
+  {
+    "kernelSource": {
+      "name": "VantomKernel",
+      "repo": "https://github.com/PixelOS-Devices/kernel_xiaomi_sm6150",
+      "branch": "fifteen",
+      "device": "sweet",
+      "defconfig": "sweet_defconfig"
+    },
+    "withKernelSU": true,
+    "withSUSFS": false,
+    "toolchains": [
+      {
+        "repo": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86",
+        "branch": "main",
+        "name": "clang-r530567",
+        "binPath": ["./bin"]
+      }
+    ],
+    "params": {
+      "ARCH": "arm64",
+      "CC": "clang-r530567/bin/clang",
+      "externalCommand": {
+        "CROSS_COMPILE": "clang-r530567/bin/aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32": "clang-r530567/bin/arm-linux-gnueabi-",
+        "LD": "clang-r530567/bin/ld.lld",
+        "AR": "clang-r530567/bin/llvm-ar",
+        "NM": "clang-r530567/bin/llvm-nm",
+        "OBJCOPY": "clang-r530567/bin/llvm-objcopy",
+        "OBJDUMP": "clang-r530567/bin/llvm-objdump",
+        "READELF": "clang-r530567/bin/llvm-readelf",
+        "OBJSIZE": "clang-r530567/bin/llvm-size",
+        "STRIP": "clang-r530567/bin/llvm-strip",
+        "LDGOLD": "clang-r530567/bin/aarch64-linux-gnu-ld.gold",
+        "LLVM_AR": "clang-r530567/bin/llvm-ar",
+        "LLVM_DIS": "clang-r530567/bin/llvm-dis",
+        "EXTRAVERSION": "-perf"
+      }
+    },
+    "AnyKernel3": {
+      "use": true,
+      "release": true,
+      "repo": "https://github.com/basamaryan/AnyKernel3/",
+      "branch": "master"
+    }
+  },
+  {
+    "kernelSource": {
+      "name": "VantomKernel",
+      "repo": "https://github.com/PixelOS-Devices/kernel_xiaomi_sm6150",
+      "branch": "fifteen",
+      "device": "sweet",
+      "defconfig": "sweet_defconfig"
+    },
+    "withKernelSU": true,
+    "withSUSFS": true,
+    "toolchains": [
+      {
+        "repo": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86",
+        "branch": "main",
+        "name": "clang-r530567",
+        "binPath": ["./bin"]
+      }
+    ],
+    "params": {
+      "ARCH": "arm64",
+      "CC": "clang-r530567/bin/clang",
+      "externalCommand": {
+        "CROSS_COMPILE": "clang-r530567/bin/aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32": "clang-r530567/bin/arm-linux-gnueabi-",
+        "LD": "clang-r530567/bin/ld.lld",
+        "AR": "clang-r530567/bin/llvm-ar",
+        "NM": "clang-r530567/bin/llvm-nm",
+        "OBJCOPY": "clang-r530567/bin/llvm-objcopy",
+        "OBJDUMP": "clang-r530567/bin/llvm-objdump",
+        "READELF": "clang-r530567/bin/llvm-readelf",
+        "OBJSIZE": "clang-r530567/bin/llvm-size",
+        "STRIP": "clang-r530567/bin/llvm-strip",
+        "LDGOLD": "clang-r530567/bin/aarch64-linux-gnu-ld.gold",
+        "LLVM_AR": "clang-r530567/bin/llvm-ar",
+        "LLVM_DIS": "clang-r530567/bin/llvm-dis",
+        "EXTRAVERSION": "-perf"
+      }
+    },
+    "AnyKernel3": {
+      "use": true,
+      "release": true,
+      "repo": "https://github.com/basamaryan/AnyKernel3/",
+      "branch": "master"
+    }
+  }
+]
