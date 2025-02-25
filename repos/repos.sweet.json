@@ -7,100 +7,6 @@
       "device": "sweet",
       "defconfig": "sweet_defconfig"
     },
-    "withKernelSU": false,
-    "withSUSFS": false,
-    "toolchains": [
-      {
-        "repo": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86",
-        "branch": "main",
-        "name": "clang-r530567",
-        "binPath": ["./bin"]
-      }
-    ],
-    "params": {
-      "ARCH": "arm64",
-      "CC": "clang",
-      "externalCommand": {
-        "CROSS_COMPILE": "aarch64-linux-gnu-",
-        "CROSS_COMPILE_ARM32": "arm-linux-gnueabi-",
-        "LD": "ld.lld",
-        "AR": "llvm-ar",
-        "NM": "llvm-nm",
-        "OBJCOPY": "llvm-objcopy",
-        "OBJDUMP": "llvm-objdump",
-        "READELF": "llvm-readelf",
-        "OBJSIZE": "llvm-size",
-        "STRIP": "llvm-strip",
-        "LDGOLD": "aarch64-linux-gnu-ld.gold",
-        "LLVM_AR": "llvm-ar",
-        "LLVM_DIS": "llvm-dis",
-        "LLVM": "LLVM=1",
-        "LLVM_IAS": "LLVM_IAS=1",
-        "EXTRAVERSION": "-perf"
-      }
-    },
-    "AnyKernel3": {
-      "use": true,
-      "release": true,
-      "repo": "https://github.com/basamaryan/AnyKernel3/",
-      "branch": "master"
-    }
-  },
-  {
-    "kernelSource": {
-      "name": "VantomKernel",
-      "repo": "https://github.com/PixelOS-Devices/kernel_xiaomi_sm6150",
-      "branch": "fifteen",
-      "device": "sweet",
-      "defconfig": "sweet_defconfig"
-    },
-    "withKernelSU": true,
-    "withSUSFS": false,
-    "toolchains": [
-      {
-        "repo": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86",
-        "branch": "main",
-        "name": "clang-r530567",
-        "binPath": ["./bin"]
-      }
-    ],
-    "params": {
-      "ARCH": "arm64",
-      "CC": "clang",
-      "externalCommand": {
-        "CROSS_COMPILE": "aarch64-linux-gnu-",
-        "CROSS_COMPILE_ARM32": "arm-linux-gnueabi-",
-        "LD": "ld.lld",
-        "AR": "llvm-ar",
-        "NM": "llvm-nm",
-        "OBJCOPY": "llvm-objcopy",
-        "OBJDUMP": "llvm-objdump",
-        "READELF": "llvm-readelf",
-        "OBJSIZE": "llvm-size",
-        "STRIP": "llvm-strip",
-        "LDGOLD": "aarch64-linux-gnu-ld.gold",
-        "LLVM_AR": "llvm-ar",
-        "LLVM_DIS": "llvm-dis",
-        "LLVM": "LLVM=1",
-        "LLVM_IAS": "LLVM_IAS=1",
-        "EXTRAVERSION": "-perf"
-      }
-    },
-    "AnyKernel3": {
-      "use": true,
-      "release": true,
-      "repo": "https://github.com/basamaryan/AnyKernel3/",
-      "branch": "master"
-    }
-  },
-  {
-    "kernelSource": {
-      "name": "VantomKernel",
-      "repo": "https://github.com/PixelOS-Devices/kernel_xiaomi_sm6150",
-      "branch": "fifteen",
-      "device": "sweet",
-      "defconfig": "sweet_defconfig"
-    },
     "withKernelSU": true,
     "withSUSFS": true,
     "toolchains": [
@@ -130,8 +36,6 @@
         "LLVM_IAS": "LLVM_IAS=1",
         "LLVM_AR": "llvm-ar",
         "LLVM_DIS": "llvm-dis",
-        "LLVM": "LLVM=1",
-        "LLVM_IAS": "LLVM_IAS=1",
         "EXTRAVERSION": "-perf"
       }
     },
