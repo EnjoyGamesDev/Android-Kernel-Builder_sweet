@@ -172,8 +172,8 @@ jobs:
           echo "ARCH=${ARCH}" >> ${GITHUB_OUTPUT}
           echo "args=${args}" >> ${GITHUB_OUTPUT}
 
-      - name: "😋 Integrate KernelSU Next"
-        id: integrate-kernelsu-next
+      - name: "😋 Integrate SukiSU-Ultra"
+        id: integrate-sukisu-ultra
         working-directory: ${{ env.KERNEL_NAME }}
         env:
           arch: ${{ steps.generate-args.outputs.ARCH }}
@@ -186,9 +186,9 @@ jobs:
             rm -rf "./drivers/kernelsu"
           fi
 
-          branch=next
+          branch=susfs-main
 
-          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s ${branch}
+          curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s ${branch}
 
           KERNELSU_NEXT_VERSION=$(git -C KernelSU-Next describe --abbrev=0 --tags)
           KERNELSU_NEXT_GIT_REF=$(git -C KernelSU-Next rev-parse --short HEAD)
@@ -206,6 +206,11 @@ jobs:
           echo -e 'CONFIG_KSU_DEBUG=n' >> arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
           echo -e 'CONFIG_KSU_ALLOWLIST_WORKAROUND=n' >> arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
           echo -e 'CONFIG_KSU_LSM_SECURITY_HOOKS=y' >> arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
+
+          # For KPM support
+          echo -e 'CONFIG_KPM=y' >> arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
+          echo -e 'CONFIG_KALLSYMS=y' >> arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
+          echo -e 'CONFIG_KALLSYMS_ALL=y' >> arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
 
           cat arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
 
