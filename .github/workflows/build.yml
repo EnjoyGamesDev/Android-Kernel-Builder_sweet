@@ -190,12 +190,12 @@ jobs:
 
           curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s ${branch}
 
-          KERNELSU_NEXT_VERSION=$(git -C KernelSU-Next describe --abbrev=0 --tags)
-          KERNELSU_NEXT_GIT_REF=$(git -C KernelSU-Next rev-parse --short HEAD)
-          echo "KERNELSU_NEXT_VERSION=${KERNELSU_NEXT_VERSION}" >> ${GITHUB_OUTPUT}
-          echo "KERNELSU_NEXT_GIT_REF=${KERNELSU_NEXT_GIT_REF}" >> ${GITHUB_OUTPUT}
-          echo -e "\n💡 KernelSU Next version: ${KERNELSU_NEXT_VERSION}\n"
-          echo -e "\n💡 KernelSU Next ref: ${KERNELSU_NEXT_GIT_REF}\n"
+          SUKISU_ULTRA_VERSION=$(git -C KernelSU describe --abbrev=0 --tags)
+          SUKISU_ULTRA_GIT_REF=$(git -C KernelSU rev-parse --short HEAD)
+          echo "SUKISU_ULTRA_VERSION=${SUKISU_ULTRA_VERSION}" >> ${GITHUB_OUTPUT}
+          echo "SUKISU_ULTRA_GIT_REF=${SUKISU_ULTRA_GIT_REF}" >> ${GITHUB_OUTPUT}
+          echo -e "\n💡 SukiSU-Ultra version: ${SUKISU_ULTRA_VERSION}\n"
+          echo -e "\n💡 SukiSU-Ultra ref: ${SUKISU_ULTRA_GIT_REF}\n"
 
           echo -e "CONFIG_KPROBES=y" >> arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
           echo -e "CONFIG_HAVE_KPROBES=y" >> arch/${{ env.arch }}/configs/${{ env.DEFCONFIG_NAME }}
@@ -359,8 +359,8 @@ jobs:
         env:
           run_number: ${{ github.run_number }}
           KERNEL_GIT_REF: ${{ steps.clone-kernel.outputs.KERNEL_GIT_REF}}
-          KERNELSU_NEXT_VERSION: ${{ steps.integrate-kernelsu-next.outputs.KERNELSU_NEXT_VERSION }}
-          KERNELSU_NEXT_GIT_REF: ${{ steps.integrate-kernelsu-next.outputs.KERNELSU_NEXT_GIT_REF }}
+          SUKISU_ULTRA_VERSION: ${{ steps.integrate-kernelsu-next.outputs.SUKISU_ULTRA_VERSION }}
+          SUKISU_ULTRA_GIT_REF: ${{ steps.integrate-kernelsu-next.outputs.SUKISU_ULTRA_GIT_REF }}
           SUSFS_VERSION: ${{ steps.add-susfs-patches.outputs.SUSFS_VERSION }}
           SUSFS_GIT_REF: ${{ steps.add-susfs-patches.outputs.SUSFS_GIT_REF }}
         run: |
@@ -375,24 +375,17 @@ jobs:
           fi
 
           if [ "${withKernelSU}" = "true" ]; then
-            suffix="${suffix}_KernelSU-Next-${KERNELSU_NEXT_VERSION}"
+            suffix="${suffix}_KernelSU-Next-${SUKISU_ULTRA_VERSION}"
 
-            release_name="${release_name} KernelSU Next ${KERNELSU_NEXT_VERSION}"
-            release_description="Linux kernel for Xiaomi Redmi Note 10 Pro (sweet) patched with [KernelSU Next ${KERNELSU_NEXT_VERSION}](https://github.com/KernelSU-Next/KernelSU-Next).\n\n- Kernel git ref: [\`${KERNEL_GIT_REF}\`](${KERNEL_REPO}/commit/${KERNEL_GIT_REF})\n- KernelSU Next git ref: [\`${KERNELSU_NEXT_GIT_REF}\`](https://github.com/KernelSU-Next/KernelSU-Next/commit/${KERNELSU_NEXT_GIT_REF})\n\n**Installation:**\n1. Flash the kernel from this release from the [OrangeFox](https://github.com/basamaryan/android_device_xiaomi_sweet-TWRP/releases) recovery.\n2. Download and install the [latest KernelSU Next manager APK](https://github.com/KernelSU-Next/KernelSU-Next/releases/${KERNELSU_NEXT_VERSION})."
+            release_name="${release_name} KernelSU Next ${SUKISU_ULTRA_VERSION}"
+            release_description="Linux kernel for Xiaomi Redmi Note 10 Pro (sweet) patched with [KernelSU Next ${SUKISU_ULTRA_VERSION}](https://github.com/KernelSU-Next/KernelSU-Next).\n\n- Kernel git ref: [\`${KERNEL_GIT_REF}\`](${KERNEL_REPO}/commit/${KERNEL_GIT_REF})\n- KernelSU Next git ref: [\`${SUKISU_ULTRA_GIT_REF}\`](https://github.com/KernelSU-Next/KernelSU-Next/commit/${SUKISU_ULTRA_GIT_REF})\n\n**Installation:**\n1. Flash the kernel from this release from the [OrangeFox](https://github.com/basamaryan/android_device_xiaomi_sweet-TWRP/releases) recovery.\n2. Download and install the [latest KernelSU Next manager APK](https://github.com/KernelSU-Next/KernelSU-Next/releases/${SUKISU_ULTRA_VERSION})."
           fi
 
           if [ "${withSUSFS}" = "true" ]; then
             suffix="${suffix}_SUSFS-${SUSFS_VERSION}"
 
             release_name="${release_name} + SUSFS ${SUSFS_VERSION}"
-            release_description="Linux kernel for Xiaomi Redmi Note 10 Pro (sweet) patched with [KernelSU Next ${KERNELSU_NEXT_VERSION}](https://github.com/KernelSU-Next/KernelSU-Next) + [SUSFS ${SUSFS_VERSION}](https://gitlab.com/simonpunk/susfs4ksu/-/tree/kernel-4.14).\n\n- Kernel git ref: [\`${KERNEL_GIT_REF}\`](${KERNEL_REPO}/commit/${KERNEL_GIT_REF})\n- KernelSU Next git ref: [\`${KERNELSU_NEXT_GIT_REF}\`](https://github.com/KernelSU-Next/KernelSU-Next/commit/${KERNELSU_NEXT_GIT_REF})\n- SUSFS git ref: [\`${SUSFS_GIT_REF}\`](https://github.com/devnoname120/susfs4ksu-toco/commit/${SUSFS_GIT_REF})\n\n**Installation:**\n1. Flash the kernel from this release from the [OrangeFox](https://github.com/basamaryan/android_device_xiaomi_sweet-TWRP/releases) recovery.\n2. Download and install the [latest KernelSU Next manager APK](https://github.com/KernelSU-Next/KernelSU-Next/releases/${KERNELSU_NEXT_VERSION}). \n3. Install the latest [susfs4ksu-module](https://github.com/sidex15/susfs4ksu-module/releases) in KernelSU Next."
-          fi
-
-          if [ "${withLXC}" = "true" ]; then
-            suffix="${suffix}_LXC"
-
-            release_name="${release_name} + LXC (for Docker support)"
-            release_description="Linux kernel for Xiaomi Mi Note 10 Lite (toco) patched with [KernelSU Next ${KERNELSU_NEXT_VERSION}](https://github.com/KernelSU-Next/KernelSU-Next) + [SUSFS ${SUSFS_VERSION}](https://gitlab.com/simonpunk/susfs4ksu/-/tree/kernel-4.14) + LXC for Docker support.\n\n- Kernel git ref: [\`${KERNEL_GIT_REF}\`](${KERNEL_REPO}/commit/${KERNEL_GIT_REF})\n- KernelSU Next git ref: [\`${KERNELSU_NEXT_GIT_REF}\`](https://github.com/KernelSU-Next/KernelSU-Next/commit/${KERNELSU_NEXT_GIT_REF})\n- SUSFS git ref: [\`${SUSFS_GIT_REF}\`](https://github.com/devnoname120/susfs4ksu-toco/commit/${SUSFS_GIT_REF})\n\n**Installation:**\n1. Flash the kernel from this release from the [OrangeFox](https://github.com/basamaryan/android_device_xiaomi_sweet-TWRP/releases) recovery.\n2. Download and install the [latest KernelSU Next manager APK](https://github.com/KernelSU-Next/KernelSU-Next/releases/${KERNELSU_NEXT_VERSION}). \n3. Install the latest [susfs4ksu-module](https://github.com/sidex15/susfs4ksu-module/releases) in KernelSU Next. \n 4. Install the [Magisk Docker](https://github.com/mgksu/dockerd/releases) module to enable Docker support, then follow the instructions in the [README.md](https://github.com/mgksu/dockerd) for how to use it."
+            release_description="Linux kernel for Xiaomi Redmi Note 10 Pro (sweet) patched with [KernelSU Next ${SUKISU_ULTRA_VERSION}](https://github.com/KernelSU-Next/KernelSU-Next) + [SUSFS ${SUSFS_VERSION}](https://gitlab.com/simonpunk/susfs4ksu/-/tree/kernel-4.14).\n\n- Kernel git ref: [\`${KERNEL_GIT_REF}\`](${KERNEL_REPO}/commit/${KERNEL_GIT_REF})\n- KernelSU Next git ref: [\`${SUKISU_ULTRA_GIT_REF}\`](https://github.com/KernelSU-Next/KernelSU-Next/commit/${SUKISU_ULTRA_GIT_REF})\n- SUSFS git ref: [\`${SUSFS_GIT_REF}\`](https://github.com/devnoname120/susfs4ksu-toco/commit/${SUSFS_GIT_REF})\n\n**Installation:**\n1. Flash the kernel from this release from the [OrangeFox](https://github.com/basamaryan/android_device_xiaomi_sweet-TWRP/releases) recovery.\n2. Download and install the [latest KernelSU Next manager APK](https://github.com/KernelSU-Next/KernelSU-Next/releases/${SUKISU_ULTRA_VERSION}). \n3. Install the latest [susfs4ksu-module](https://github.com/sidex15/susfs4ksu-module/releases) in KernelSU Next."
           fi
 
 
