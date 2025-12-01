@@ -2,7 +2,7 @@
   {
     "kernelSource": {
       "name": "VantomKernel",
-      "repo": "https://github.com/PixelOS-Devices/kernel_xiaomi_sm6150",
+      "repo": "https://github.com/PixelOS-Devices/android_kernel_xiaomi_sm6150",
       "branch": "fifteen",
       "device": "sweet",
       "defconfig": "sweet_defconfig"
@@ -11,7 +11,7 @@
     "withSUSFS": true,
     "toolchains": [
       {
-        "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r530567.tar.gz",
+        "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz",
         "name": "clang",
         "binPath": ["./bin"]
       }
