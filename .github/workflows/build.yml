@@ -190,7 +190,7 @@ jobs:
 
           curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s ${branch}
 
-          SUKISU_ULTRA_VERSION=$(git -C KernelSU describe --abbrev=0 --tags)
+          SUKISU_ULTRA_VERSION=$(git -C KernelSU describe --abbrev=0 --tags --always)
           SUKISU_ULTRA_GIT_REF=$(git -C KernelSU rev-parse --short HEAD)
           echo "SUKISU_ULTRA_VERSION=${SUKISU_ULTRA_VERSION}" >> ${GITHUB_OUTPUT}
           echo "SUKISU_ULTRA_GIT_REF=${SUKISU_ULTRA_GIT_REF}" >> ${GITHUB_OUTPUT}
