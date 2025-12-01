@@ -261,7 +261,7 @@ jobs:
 
           echo "Updating SUSFS Version to 2XXX"
           curl -L \
-          -o susfs_inline_hook_patches.sh \
+          -o susfs_upgrade_to_2000_4.14.patch \
           https://raw.githubusercontent.com/JackA1ltman/NonGKI_Kernel_Build_2nd/sample/Patches/Patch/susfs_upgrade_to_2000_4.14.patch
           
           patch -p1 < susfs_upgrade_to_2000_4.14.patch || true
