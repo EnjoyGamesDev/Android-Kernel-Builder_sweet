@@ -3,7 +3,7 @@
     "kernelSource": {
       "name": "VantomKernel",
       "repo": "https://github.com/PixelOS-Devices/android_kernel_xiaomi_sm6150",
-      "branch": "sixteen",
+      "branch": "sixteen-qpr2",
       "device": "sweet",
       "defconfig": "sweet_defconfig"
     },
