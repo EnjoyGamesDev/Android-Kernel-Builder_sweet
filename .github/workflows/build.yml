@@ -218,7 +218,7 @@ jobs:
             rm -rf "./SUSFS"
           fi
 
-          export SILLY_SUSFS_PATCH="https://github.com/TheSillyOk/kernel_ls_patches/raw/refs/heads/master/susfs-2.0.0.patch"
+          export SILLY_SUSFS_PATCH="https://github.com/TheSillyOk/kernel_ls_patches/raw/refs/heads/master/susfs-2.1.0.patch"
           wget -qO- $SILLY_SUSFS_PATCH | patch -s -p1 --fuzz=5
 
           SUSFS_VERSION=$(grep -oP '^\s*#define\s+SUSFS_VERSION\s+"\K[^"]+' include/linux/susfs.h)
